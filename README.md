@@ -19,7 +19,7 @@
 - 効果の評価の確認
 
 ## 設計書
-<!--テーマを設定・提出する時点では不要です-->
+[実装機能リスト](https://docs.google.com/spreadsheets/d/1_eoN2IqeB6zj_c_eD0hD3O1qN9Wkpxg081vs5OvmmmM/edit#gid=1091086188)
 
 ## 開発環境
 - OS：Linux(CentOS)
@@ -27,5 +27,3 @@
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
-
-[実装機能リスト](https://docs.google.com/spreadsheets/d/1_eoN2IqeB6zj_c_eD0hD3O1qN9Wkpxg081vs5OvmmmM/edit#gid=1091086188)
