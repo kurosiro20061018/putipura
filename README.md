@@ -20,6 +20,8 @@
 
 ## 設計書
 [実装機能リスト](https://docs.google.com/spreadsheets/d/1_eoN2IqeB6zj_c_eD0hD3O1qN9Wkpxg081vs5OvmmmM/edit#gid=1091086188)
+[テーブル定義書](https://docs.google.com/spreadsheets/d/1OSQ7Mv8RSa68VESD1U8_GxID3Ha5qEGJu4qeK7ydRCI/edit#gid=1243549839)
+[アプリケーション詳細設計書](https://docs.google.com/spreadsheets/d/1kSGtKLRSUL1DQd7eeKYhbOGF1LJhgyVz0ADYsXPaRMQ/edit#gid=549108681)
 
 ## 開発環境
 - OS：Linux(CentOS)
