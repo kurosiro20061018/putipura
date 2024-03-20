@@ -27,6 +27,6 @@
 - JSライブラリ：jQuery
 - IDE：Cloud9
 
-##使用素材
+## 使用素材
 [フリー素材](https://www.ac-illust.com/main/search_result.php?word=%E5%9F%BA%E7%A4%8E%E5%8C%96%E7%B2%A7%E5%93%81)
 [アンケート調査](https://prtimes.jp/main/html/rd/p/000000016.000088698.html)
