@@ -12,7 +12,7 @@
 ## 主な利用シーン。
 - プチプラな価格前提の商品で、自分に合いそうな商品を探したい時。
 - 使用したい商品があるが、使用感等、効果の評価の確認をしたい時。
--
+
 
 ## 設計書
 [実装機能リスト](https://docs.google.com/spreadsheets/d/1_eoN2IqeB6zj_c_eD0hD3O1qN9Wkpxg081vs5OvmmmM/edit#gid=1091086188)
