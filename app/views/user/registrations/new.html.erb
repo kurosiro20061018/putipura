@@ -1,25 +1,37 @@
-<h2>Sign up</h2>
+<h2>新規登録</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_with model: @user, url: user_registration_path do |f| %>
   <%= render "user/shared/error_messages", resource: resource %>
 
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+  
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-
+  
   <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.label :age %><br />
+    <%= f.select :age, (10..90).step(10), prompt: "年齢を選択してください" %>
   </div>
+
+  <div class="field">
+    <%= f.label :skin_quality %><br />
+    <%= f.select :skin_quality, ['乾燥肌', '混合肌', '脂性肌'], prompt: "肌質を選択してください" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :skin_trouble %><br />
+    <%= f.select :skin_trouble, ['ニキビ', 'シミ', 'シワ', '乾燥'], prompt: "肌トラブルを選択してください" %>
+</div>
 
   <div class="actions">
     <%= f.submit "Sign up" %>

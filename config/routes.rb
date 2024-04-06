@@ -5,8 +5,6 @@ Rails.application.routes.draw do
     post "/genres"=>"genres#create"
     resources :items, only: [:index, :new,:show, :edit, :update]
     post "/items"=>"items#create"
-    #get "/admin"=>"homes#top"
-    get ""=>"homes#top"
   end
 
   namespace :user do
@@ -21,12 +19,12 @@ Rails.application.routes.draw do
     root to: "homes#top"
     get "/about"=>"homes#about"
 end
-  devise_for :admin, skip: [:registrations, :passwords], controllers: {
-  sessions: "admin/sessions"
-}
   devise_for :user, skip: [:passwords], controllers: {
   registrations: "user/registrations",
   sessions: 'user/sessions'
+}
+  devise_for :admin, skip: [:registrations, :passwords], controllers: {
+  sessions: "admin/sessions"
 }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
