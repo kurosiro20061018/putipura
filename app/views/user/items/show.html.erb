@@ -1,2 +1,28 @@
-<h1>User::Items#show</h1>
-<p>Find me in app/views/user/items/show.html.erb</p>
+<h1>アイテム詳細</h1>
+<div>
+  <h2>画像</h2>
+  <%= image_tag url_for(@item.image) if @item.image.attached? %>
+</div>
+<div>
+  <p><%= @item.name %></p>
+</div>
+<div>
+  <p><%= @item.price %>円</p>
+</div>
+<%= form_with model: @evaluation, url: user_item_evaluations_path(@item) do |f| %>
+<%= f.hidden_field :item_id, :value => @item.id %>
+<%= f.text_area :content %>
+<%= f.submit '投稿' %>
+<% end %>
+
+<h1>レビュー一覧</h1>
+<% @evaluations.each do |evaluation| %>
+    <p><%= evaluation.user.name %></p>
+    <p><%= evaluation.content %></p>
+<% end %>
+  <div class="actions">
+    <%= link_to "アイテム一覧", user_items_path %>
+  </div>
+  
+  
+

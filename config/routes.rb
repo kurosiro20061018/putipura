@@ -1,24 +1,33 @@
 Rails.application.routes.draw do
   namespace :admin do
     get "/uses"=>"customers#index"
-    resources :genres, only: [:index, :edit, :update]
-    post "/genres"=>"genres#create"
-    resources :items, only: [:index, :new,:show, :edit, :update]
-    post "/items"=>"items#create"
+    resources :genres
+    resources :items, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+    end
+    resources :evaluation, only: [:index, :destroy]
   end
 
   namespace :user do
-    resources :evaluations, only: [:new, :show, :edit, :destroy]
+    resources :items do
+      resources :evaluations, only: [:new, :create, :index,  :update]
+    end
+    #resources :users do
+      #collection do
+        #get :delete
+        #get :search
+      #end
+    #end
+
     get "/my_page"=>"customers#show"
     get "/information/edit"=>"customers#edit"
-    get "/information"=>"customers#updeate"
+    patch "/information"=>"customers#update"
     get "/unsubscribe"=>"customers#unsubscribe"
     get "/withdrawal"=>"customers#withdrawal"
     resources :items, only: [:index, :show]
 
     root to: "homes#top"
     get "/about"=>"homes#about"
-end
+  end
   devise_for :user, skip: [:passwords], controllers: {
   registrations: "user/registrations",
   sessions: 'user/sessions'

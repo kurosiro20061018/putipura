@@ -1,2 +1,10 @@
 <h1>User::Evaluations#show</h1>
-<p>Find me in app/views/user/evaluations/show.html.erb</p>
+<h1>評価詳細</h1>
+
+<p><strong>レビュー:</strong> <%= @evaluation.content %></p>
+<p><strong>アイテム:</strong> <%= @evaluation.item.name %></p>
+<p><strong>ユーザー名:</strong> <%= @evaluation.user.email %></p>
+
+<%= link_to '編集', edit_user_evaluation_path(@evaluation) %>
+<%= link_to '削除', user_evaluation_path(@evaluation), method: :delete, "data-confirm" => "本当に削除しますか？"  %>
+

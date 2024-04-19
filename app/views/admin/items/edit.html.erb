@@ -1,2 +1,30 @@
 <h1>Admin::Items#edit</h1>
 <p>Find me in app/views/admin/items/edit.html.erb</p>
+<h1>アイテム編集</h1>
+<%= form_with(model: @item, url: admin_item_path(@item), method: :patch, local: true) do |form| %>
+  <div>
+    <%= form.label :image, "画像" %>
+    <%= form.file_field :image %>
+    <% if @item.image.attached? %>
+      <div>
+        <%= image_tag url_for(@item.image), class: "edit-item-image" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.label :name, "アイテム名" %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :price, "価格" %>
+    <%= form.number_field :price %>
+  </div>
+  <div>
+    <h4>ジャンル</h4>
+    <%= form.label :genre_id %>
+    <%= form.collection_select :genre_id, @genres, :id, :name, prompt: "ジャンルを選択してください" %>
+  </div>
+  <div>
+    <%= form.submit "更新" %>
+  </div>
+<% end %>

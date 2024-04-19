@@ -25,12 +25,12 @@
 
   <div class="field">
     <%= f.label :skin_quality %><br />
-    <%= f.select :skin_quality, ['乾燥肌', '混合肌', '脂性肌'], prompt: "肌質を選択してください" %>
+    <%= f.select :skin_quality, ['乾燥肌', '混合肌', '脂性肌', '普通肌'], prompt: "肌質を選択してください" %>
   </div>
   
   <div class="field">
     <%= f.label :skin_trouble %><br />
-    <%= f.select :skin_trouble, ['ニキビ', 'シミ', 'シワ', '乾燥'], prompt: "肌トラブルを選択してください" %>
+    <%= f.select :skin_trouble, ['ニキビ', 'シミ', 'シワ', '乾燥','特になし'], prompt: "肌トラブルを選択してください" %>
 </div>
 
   <div class="actions">

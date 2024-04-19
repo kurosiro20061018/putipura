@@ -1,3 +1,21 @@
-<h1>Admin::Items#index</h1>
-<p>Find me in app/views/admin/items/index.html.erb</p>
-<%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+<h1>アイテム一覧</h1>
+<div class="main-content col-5">
+  <div class="row row-cols-3 p-3">
+    <div class="col p-3">
+      <div class="content">
+        <% @items.each_slice(3) do |group| %>
+          <div class="d-flex justify-content-between">
+            <% group.each do |item| %>
+              <div>
+                <%= link_to admin_item_path(item) do %>
+                  <%= image_tag item.image, style: "width: 300px; height: 200px;" if item.image.attached? %>
+                  <p><%= item.name %></p>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

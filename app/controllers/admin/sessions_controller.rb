@@ -4,6 +4,10 @@ class Admin::SessionsController < Devise::SessionsController
     def after_sign_in_path_for(resource)
       admin_items_path
     end
+    
+    def after_sign_out_path_for(resource)
+      user_root_path
+    end
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in

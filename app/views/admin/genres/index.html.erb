@@ -1,2 +1,12 @@
-<h1>Admin::Genres#index</h1>
-<p>Find me in app/views/admin/genres/index.html.erb</p>
+<h1>ジャンル追加</h1>
+<%= form_with model: @genre, url: admin_genres_path do |f| %>
+<h4>ジャンル名</h4>
+<%= f.text_field :name %>
+<%= f.submit "ジャンルを追加する" %>
+<%end%>
+<h1>ジャンル一覧</h1>
+<% @genres.each do |genre| %>
+  <div><%= genre.name %></div>
+  <%= link_to '編集', edit_admin_genre_path(genre) %>
+  <%= link_to '削除', admin_genre_path(genre), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+<% end %>

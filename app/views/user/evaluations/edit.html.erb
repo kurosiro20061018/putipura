@@ -1,2 +1,6 @@
-<h1>User::Evaluations#edit</h1>
-<p>Find me in app/views/user/evaluations/edit.html.erb</p>
+<h1>レビュー編集</h1>
+<%= form_with model: @evaluation, url: user_evaluation_path(@evaluation), method: "patch" do |f| %>
+  <%= f.label :コメント %>
+  <%= f.text_area :content, value: @evaluation.content %>
+  <%= f.submit "投稿" %>
+<% end %>

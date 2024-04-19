@@ -1,2 +1,24 @@
-<h1>User::Customers#show</h1>
-<p>Find me in app/views/user/customers/show.html.erb</p>
+<h1>マイページ</h1>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>email</th>
+      <th>age</th>
+      <th>肌質</th>
+      <th>肌トラブル</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><%= @user.name %></td>
+        <td><%= @user.email %></td>
+        <td><%= @user.age %></td>
+        <td><%= @user.skin_quality %></td>
+        <td><%= @user.skin_trouble %></td>
+      </tr>
+      </tbody>
+</table>
+          <%= link_to '編集する', user_information_edit_path %>
+          
