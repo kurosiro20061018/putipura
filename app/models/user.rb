@@ -10,4 +10,8 @@ class User < ApplicationRecord
   validates :age, presence: true
   validates :skin_quality, presence: true
 
+  # is_deletedがfalseならtrueを返すようにしている
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
 end

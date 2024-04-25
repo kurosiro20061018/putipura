@@ -10,6 +10,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.integer :age, null: false
       t.text :skin_quality, null: false
       t.text :skin_trouble
+      t.boolean :is_deleted, default: false, null: false
       t.timestamps null: false
 
       ## Recoverable

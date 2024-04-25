@@ -29,21 +29,23 @@ class User::SessionsController < Devise::SessionsController
   end
   
   private
-  # アクティブであるかを判断するメソッド
-  def user_state
-  # 【処理内容1】 入力されたemailからアカウントを1件取得
-    customer = User.find_by(email: params[:end_user][:email])
-  # 【処理内容2】 アカウントを取得できなかった場合、このメソッドを終了する
-    return if customer.nil?
-  # 【処理内容3】 取得したアカウントのパスワードと入力されたパスワードが一致していない場合、このメソッドを終了する
-    return unless customer.valid_password?(params[:customer][:password])
-  # 【処理内容4】 アクティブでない会員に対する処理
-    if customer.is_active
-      return True
+  # 退会しているかいないかを判断するメソッド
+  def reject_end_user
+  # 入力されたemailからアカウントを1件取得
+  　@end_user = User.find_by(email: params[:end_user][:email])
+  　if @end_user
+  　#有効なパスワードであるが、退会済みである場合
+      if @end_user.valid_password?(params[:end_user][:password]) && (@end_user.is_deleted == true)
+        flash[:notice] = "退会済みです。再度ご登録をしてご利用ください"
+        redirect_to new_user_session_path
+    #入力ミスによるユーザーが見つからない場合
+      else
+        flash[:notice] = "項目を再入力してください"
+      end
+    #登録がまだな場合
     else
-      return redirect('new_user_session_path')
-
-    
+      flash[:notice] = "該当するユーザーが見つかりません。新規登録をお願いします。"
     end
   end
 end
+
