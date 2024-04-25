@@ -1,4 +1,4 @@
-class User::CustomersController < ApplicationController
+class User::UsersController < ApplicationController
   before_action :authenticate_user!
   def show
     # 自分のあかうんとを取得
@@ -24,12 +24,16 @@ class User::CustomersController < ApplicationController
 
   def unsubscribe
     @user = current_user
-    @user.status = "退会"
-    @user.save
-    
+
   end
 
-  def withdrawal
+  def withdraw
+    @user = User.find(current_user.id)
+    # is_deletedカラムをtrueに変更することにより削除フラグを立てる
+    @user.update(is_deleted: true)
+    reset_session
+    flash[:notice] = "退会処理を実行いたしました"
+    redirect_to user_root_path
   end
 
   protected

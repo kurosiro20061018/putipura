@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   namespace :admin do
     get "/uses"=>"customers#index"
-    resources :genres
-    resources :items, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+    resources :genres do
+        get :search
     end
+
+    resources :items
     resources :evaluation, only: [:index, :destroy]
   end
 
@@ -18,15 +20,17 @@ Rails.application.routes.draw do
       #end
     #end
 
-    get "/my_page"=>"customers#show"
-    get "/information/edit"=>"customers#edit"
-    patch "/information"=>"customers#update"
-    get "/unsubscribe"=>"customers#unsubscribe"
-    get "/withdrawal"=>"customers#withdrawal"
+    get "/my_page"=>"users#show"
+    get "/information/edit"=>"users#edit"
+    patch "/information"=>"users#update"
+    get "/unsubscribe"=>"users#unsubscribe"
+    get '/genre/search' => 'genres#search'
     resources :items, only: [:index, :show]
 
     root to: "homes#top"
     get "/about"=>"homes#about"
+     # 論理削除用のルーティング
+    patch  '/withdraw' => 'users#withdraw'
   end
   devise_for :user, skip: [:passwords], controllers: {
   registrations: "user/registrations",

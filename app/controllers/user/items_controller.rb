@@ -2,6 +2,7 @@ class User::ItemsController < ApplicationController
   before_action :authenticate_user!
   def index
     @items = Item.all
+    @genres = Genre.all
   end
 
   def show
