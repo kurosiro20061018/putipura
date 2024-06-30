@@ -14,7 +14,7 @@
 
 <h1>レビュー一覧</h1>
 <% @evaluations.each do |evaluation| %>
-  <p><%= evaluation.user.name %></p>
+  
   <p><%= evaluation.content %></p>
   <%= link_to 'レビュー削除', admin_evaluation_path(evaluation), method: :delete, data: { confirm: '本当に削除しますか？' } %>
 <% end %>

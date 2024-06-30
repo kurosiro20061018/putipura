@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     resources :items
     resources :evaluation, only: [:index, :destroy]
   end
-
+  scope module: :user do
+    root to: "homes#top"
+  end
   namespace :user do
     resources :items do
       resources :evaluations, only: [:new, :create, :index,  :update]
@@ -27,7 +29,8 @@ Rails.application.routes.draw do
     get '/genre/search' => 'genres#search'
     resources :items, only: [:index, :show]
 
-    root to: "homes#top"
+    #root to: "homes#top"
+    root to: redirect('/')
     get "/about"=>"homes#about"
      # 論理削除用のルーティング
     patch  '/withdraw' => 'users#withdraw'
