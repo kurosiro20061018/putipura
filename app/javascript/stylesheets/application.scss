@@ -1,1 +1,7 @@
 @use '~bootstrap/scss/bootstrap';
+
+.jumbotron {
+  background-image: url("../images/TOP.jpeg");
+  background-size: cover;
+  height: 100vh;
+}

@@ -7,7 +7,7 @@
     <%= form.file_field :image %>
     <% if @item.image.attached? %>
       <div>
-        <%= image_tag url_for(@item.image), class: "edit-item-image" %>
+        <%= image_tag url_for(@item.image),  style: "width: 600px; height: 400px;" %>
       </div>
     <% end %>
   </div>

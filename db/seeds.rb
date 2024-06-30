@@ -9,3 +9,9 @@ Admin.create!(
   email: "0000@gmail.com",
   password: "000000"
 )
+
+genre_names = ["クレンジング", "洗顔", "化粧水", "乳液", "美容液"]
+
+genre_names.each do |name|
+  Genre.create!(name: name)
+end
