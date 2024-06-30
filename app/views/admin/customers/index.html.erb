@@ -1,10 +1,10 @@
-<h1>User一覧</h1>
-<div>
-  <strong>ID</strong> - <strong>名前</strong> - <strong>メールアドレス</strong>
-</div>
-
-<% @users.each do |user| %>
-  <div>
-    <%= user.id %> - <%= user.name %> - <%= user.email %>
-  </div>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h1>User一覧</h1>
+      <strong>ID</strong> - <strong>名前</strong> - <strong>メールアドレス</strong>
+      <% @users.each do |user| %>
+    <div>
+      <%= user.id %> - <%= user.name %> - <%= user.email %>
+    </div>
+      <% end %>

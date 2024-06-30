@@ -1,12 +1,18 @@
-<h1>ジャンル編集</h1>
-<%= form_with model: @genre, url: admin_genre_path(@genre), method: :patch  do |form| %>
-  <div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+    <h1>ジャンル編集</h1>
+    <%= form_with model: @genre, url: admin_genre_path(@genre), method: :patch  do |form| %>
+    <div>
     <%= form.label :name, "ジャンル名" %>
     <%= form.text_field :name %>
-  </div>
-  <div>
+    </div>
+    <div>
     <%= form.submit "更新" %>
+    </div>
+    <% end %>
+    </div>
   </div>
-<% end %>
+</div>
 
 

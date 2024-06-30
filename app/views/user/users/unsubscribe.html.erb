@@ -1,6 +1,13 @@
-<h1>User::Customers#unsubscribe</h1>
-<p>Find me in app/views/user/customers/unsubscribe.html.erb</p>
-<div class="actions">
-  <%= link_to "退会する", user_withdraw_path,method: :patch, class: "btn btn-danger" %>
-  <%= link_to "退会しない", user_information_edit_path, class: "btn btn-secondary" %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+    <p>本当に退会されますか？</br>
+       退会された場合同じメールアドレスでの再度ご登録はできません。</br>
+       ご了承ください。</p>
+      <div class="actions">
+        <%= link_to "退会する", user_withdraw_path,method: :patch, class: "btn btn-danger" %>
+        <%= link_to "退会しない", user_information_edit_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
 </div>

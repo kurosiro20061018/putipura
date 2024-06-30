@@ -1,24 +1,32 @@
-<h1>アイテム詳細</h1>
-<div>
-  <h2>画像</h2>
-  <%= image_tag url_for(@item.image) , style: "width: 600px; height: 400px;" if @item.image.attached? %>
-</div>
-<div>
-  <p><%= @item.name %></p>
-</div>
-<div>
-  <p><%= @item.price %>円</p>
-</div>
-<%= link_to "アイテムの編集", edit_admin_item_path(@item.id) %>
-<%= link_to "アイテムの削除", admin_item_path(@item), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-
-<h1>レビュー一覧</h1>
-<% @evaluations.each do |evaluation| %>
-
-  <p><%= evaluation.content %></p>
-  <%= link_to 'レビュー削除', admin_evaluation_path(evaluation), method: :delete, data: { confirm: '本当に削除しますか？' } %>
-<% end %>
-  <div class="actions">
-    <%= link_to "アイテム一覧", admin_items_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div>
+        <%= image_tag url_for(@item.image) , style: "width: 600px; height: 400px;" if @item.image.attached? %>
+      </div>
+      <div>
+        <p><%= @item.name %></p>
+      </div>
+      <div>
+        <p><%= @item.price %>円</p>
+      </div>
+      <div>
+        <%= link_to "アイテムの編集", edit_admin_item_path(@item.id) %>
+        <%= link_to "アイテムの削除", admin_item_path(@item), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+      </div>
+    </div>
   </div>
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h2>レビュー一覧</h2>
+      <% @evaluations.each do |evaluation| %>
+      <p><%= evaluation.content %></p>
+      <%= link_to 'レビュー削除', admin_evaluation_path(evaluation), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+      <% end %>
+      <div class="actions">
+        <%= link_to "アイテム一覧", admin_items_path %>
+      </div>
+    </div>
+  </div>
+</div>
 
