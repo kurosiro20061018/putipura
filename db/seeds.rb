@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Admin.create!(
-  email: "0000@gmail.com",
-  password: "000000"
+  email: "123456@gmail.com",
+  password: "123456"
 )
 
 genre_names = ["クレンジング", "洗顔", "化粧水", "乳液", "美容液"]

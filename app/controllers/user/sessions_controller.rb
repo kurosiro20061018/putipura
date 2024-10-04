@@ -26,7 +26,7 @@ class User::SessionsController < Devise::SessionsController
 
   protected
   def configure_sign_in_params
-    devise_parameter_sanitizer.permit(:sign_in, keys: [:name, :email])
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:email, :password])
   end
 
   private
