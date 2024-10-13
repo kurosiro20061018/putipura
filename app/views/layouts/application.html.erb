@@ -5,69 +5,68 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <script src="https://kit.fontawesome.com/xxxxxxxxxx.js" crossorigin="anonymous"></script>
+    
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body class="d-flex flex-column vh-100">
-   <script src="https://kit.fontawesome.com/c0cf8a90ba.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/c0cf8a90ba.js" crossorigin="anonymous"></script>
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
           <ul>
             <%= link_to "LOGO" %>
           </ul>
-            <ul class="navbar-nav ml-auto">
-              <% if user_signed_in? %>
-                <li class="nav-item">
-                  <%= link_to "マイページ" , user_my_page_path %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "アイテム一覧", user_items_path %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-                </li>
+          <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <%= link_to "マイページ" , user_my_page_path %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "アイテム一覧", user_items_path %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+              </li>
 
-              <% elsif admin_signed_in? %>
-                <li class="nav-item">
-                  <%= link_to "アイテム一覧", admin_items_path %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "新規アイテム登録", new_admin_item_path %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "新規ジャンル登録", admin_genres_path %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "user一覧", admin_uses_path %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-                </li>
-              <% else %>
-                <li class="nav-item">
-                  <%= link_to "About", user_about_path %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "アイテム一覧", user_items_path %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "新規登録", new_user_registration_path %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "ログイン", new_user_session_path %>
-                </li>
-                <% end %>
-            </ul>
-          </div>
+            <% elsif admin_signed_in? %>
+              <li class="nav-item">
+                <%= link_to "アイテム一覧", admin_items_path %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "新規アイテム登録", new_admin_item_path %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "新規ジャンル登録", admin_genres_path %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "user一覧", admin_uses_path %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to "About", user_about_path %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "アイテム一覧", user_items_path %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "新規登録", new_user_registration_path %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "ログイン", new_user_session_path %>
+              </li>
+            <% end %>
+          </ul>
         </div>
       </nav>
     </header>
     <main class="mb-auto">
       <p id = "notice"><%= notice %></p>
-    <%= yield %>
+      <%= yield %>
     </main>
   </body>
 </html>
